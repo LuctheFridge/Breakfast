@@ -4,7 +4,6 @@
         https://docs.oracle.com/javase/tutorial/uiswing/components/toplevel.html#contentpane
         https://docs.oracle.com/javase/8/docs/api/javax/swing/JButton.html
         https://docs.oracle.com/javase/7/docs/api/javax/swing/ImageIcon.html
-
          */
 
         public class Main {
