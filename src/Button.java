@@ -1,40 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class Button extends JButton implements ActionListener {
+public class Button extends JButton {
 
-    // No image = 0, buttonX = 1, buttonO = 2.
-    private byte visible = 0;
     private ImageIcon buttonX;
     private ImageIcon buttonO;
+    private boolean test;
 
-    // Create JButton and initialize images.
-    public Button() {
-        System.out.println();
-        buttonX = resizeIcon((createImageIcon("buttonX.png")));
-        buttonO = resizeIcon((createImageIcon("buttonO.png")));
-        addActionListener(this);
-    }
+    public ImageIcon getIconX() {return resizeIcon((createImageIcon("buttonX.png")));}
+    public ImageIcon getIconO() {return resizeIcon((createImageIcon("buttonO.png")));}
+    public boolean getTest(){return test;}
+    public void setTest(boolean test){this.test = test;}
 
-    public void actionPerformed(ActionEvent e){
-        visible++;
-        visible%=3;
-        switch(visible){
-            case 0:
-                setIcon(null);
-                break;
-            case 1:
-                setIcon(buttonX);
-                break;
-            case 2:
-                setIcon(buttonO);
-                break;
-        }
-    }
-
-    // Returns an image or null if the path was invalid.
+    /* Returns an image or null if the path was invalid. */
     public ImageIcon createImageIcon(String path){
         ImageIcon imgURL = new ImageIcon(this.getClass().getResource(path));
         if (imgURL != null){
@@ -45,7 +23,7 @@ public class Button extends JButton implements ActionListener {
         }
     }
 
-    // Resize the image to fit the button.
+    /* Resize the image to fit the button. */
     private static ImageIcon resizeIcon(ImageIcon imgURL){
         Image oldIMG = imgURL.getImage();
         int newWidth = 150;
