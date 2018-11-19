@@ -1,3 +1,5 @@
+package com.devries;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.GridLayout;

@@ -1,3 +1,5 @@
+package com.devries;
+
 public class Main {
 
     /** Author: Luc de Vries

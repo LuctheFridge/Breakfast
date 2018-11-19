@@ -1,3 +1,5 @@
+package com.devries;
+
 import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -103,13 +105,13 @@ public class ButtonHandler implements ActionListener {
         switch (m) {
             case WIN_MESSAGE:
                 JOptionPane.showMessageDialog(null,
-                            "Game over, " + winner + " won.",
+                            "Game over, " + winner + " won. Click new game to play again!",
                             "A game of Breakfast",
                             JOptionPane.PLAIN_MESSAGE);
                 return true;
             case DRAW_MESSAGE:
                 JOptionPane.showMessageDialog(null,
-                        "Game over, it's a draw.",
+                        "Game over, it's a draw. Click new game to play again!",
                         "A game of Breakfast",
                         JOptionPane.PLAIN_MESSAGE);
                 return true;

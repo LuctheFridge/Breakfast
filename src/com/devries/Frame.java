@@ -1,3 +1,5 @@
+package com.devries;
+
 import javax.swing.JFrame;
 import java.awt.Dimension;
 
@@ -10,7 +12,7 @@ public class Frame extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setResizable(false);
-        Menu myMenu = new Menu(this);
+        com.devries.Menu myMenu = new Menu(this);
         setJMenuBar(myMenu.bar);
         setVisible(true);
     }

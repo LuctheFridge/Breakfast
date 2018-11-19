@@ -1,6 +1,8 @@
+package com.devries;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.*;
+import java.awt.Image;
 
 public class Button extends JButton {
     private int xPos,yPos;

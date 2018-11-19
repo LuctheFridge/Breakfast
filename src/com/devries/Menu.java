@@ -1,3 +1,5 @@
+package com.devries;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
