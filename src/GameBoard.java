@@ -1,41 +1,32 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
-public class GameBoard extends JPanel implements ActionListener {
-    private byte myTurn = 0;
-    private JButton[] myButtons;
+public class GameBoard extends JPanel {
 
-    public GameBoard(){
-        setVisible(true);
-        setSize(500,500);
-        setLayout(new GridLayout(3, 3)); // A board of 3x3 tiles.
+    /* Initialize a field of buttons and variables for clarity */
+    private JButton[][] myButtons;
 
-        myButtons = new Button[9];
-        for (int i = 0; i < myButtons.length; i++) {
-            myButtons[i] = new Button();
-            myButtons[i].addActionListener(this);
-            this.add(myButtons[i]);
-        }
-    }
+    /* A board of 3x3 buttons in a 500x500 frame */
+    private int boardSize = Main.getBoardSize();
+    private int dimension = Main.getDim();
 
-    public void actionPerformed(ActionEvent e) {
-        Button clickedButton = (Button) e.getSource();
-        if(!clickedButton.getTest()) {
-            switch (myTurn) {
-                case 0:
-                    clickedButton.setIcon(clickedButton.getIconX());
-                    myTurn++;
-                    break;
-                case 1:
-                    clickedButton.setIcon(clickedButton.getIconO());
-                    myTurn--;
-                    break;
+    public GameBoard() {
+        setSize(dimension, dimension);
+        setLayout(new GridLayout(boardSize, boardSize));
+
+        // Create all buttons and place them on the board.
+        myButtons = new Button[boardSize][boardSize];
+        for (int u = 0; u < boardSize; u++) {
+            for (int i = 0; i < boardSize; i++) {
+                myButtons[i][u] = new Button(i, u);
+
+                ActionListener ButtonHandler = new ButtonHandler();
+                myButtons[i][u].addActionListener(ButtonHandler);
+
+                this.add(myButtons[i][u]);
             }
-            clickedButton.setTest(true);
         }
-
     }
-
 }
